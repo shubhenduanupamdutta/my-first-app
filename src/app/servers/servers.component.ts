@@ -9,11 +9,12 @@ import { Component } from '@angular/core';
   //   <app-server></app-server>
   // `,
   templateUrl: './servers.component.html',
-  styleUrl: './servers.component.css'
+  styleUrl: './servers.component.css',
 })
 export class ServersComponent {
   allowNewServer = false;
   serverCreationStatus = 'No server was created!';
+  serverName = '';
 
   constructor() {
     setTimeout(() => {
@@ -23,5 +24,9 @@ export class ServersComponent {
 
   onCreateServer() {
     this.serverCreationStatus = 'Server was created!';
+  }
+
+  onUpdateServerName(event: InputEvent) {
+    this.serverName = (<HTMLInputElement>event.target).value;
   }
 }
